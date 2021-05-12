@@ -1,0 +1,9 @@
+build
+dist
+node_modules
+.env
+cache/*
+
+.DS_Store
+# vim
+*.swp

@@ -1,0 +1,75 @@
+{
+  "name": "@omgnetwork/batch-submitter",
+  "version": "0.1.7",
+  "description": "[Optimism] Batch submission for sequencer & aggregators",
+  "main": "build/index.js",
+  "files": [
+    "build/**/*.js"
+  ],
+  "scripts": {
+    "start": "node ./exec/run-batch-submitter.js",
+    "build": "tsc -p .",
+    "clean": "rimraf build/",
+    "lint": "tslint --format stylish --project .",
+    "test": "hardhat test --show-stack-traces",
+    "fix": "prettier --config prettier-config.json --write \"{src,exec,test}/**/*.ts\""
+  },
+  "keywords": [
+    "optimism",
+    "ethereum",
+    "sequencer",
+    "aggregator"
+  ],
+  "homepage": "https://github.com/ethereum-optimism/optimism-monorepo/tree/master/packages/batch-submitter#readme",
+  "license": "MIT",
+  "author": "Optimism",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ethereum-optimism/optimism-monorepo.git"
+  },
+  "dependencies": {
+    "@eth-optimism/contracts": "^0.0.2-alpha.7",
+    "@eth-optimism/core-utils": "^0.1.10",
+    "@eth-optimism/provider": "^0.0.1-alpha.13",
+    "@eth-optimism/ynatm": "^0.2.2",
+    "@ethersproject/abstract-provider": "^5.0.5",
+    "@ethersproject/providers": "^5.0.14",
+    "bluebird": "^3.7.2",
+    "dotenv": "^8.2.0",
+    "ethers": "5.0.0",
+    "new-contracts": "npm:@eth-optimism/contracts@0.1.4"
+  },
+  "devDependencies": {
+    "@eth-optimism/dev": "^1.0.0",
+    "@eth-optimism/smock": "^0.2.1-alpha.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.11.3",
+    "@types/sinon": "^9.0.10",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "ethereum-waffle": "3.0.0",
+    "ganache-core": "^2.13.2",
+    "hardhat": "^2.1.1",
+    "mocha": "^6.1.4",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "sinon": "^9.2.4",
+    "sinon-chai": "^3.5.0",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-no-focused-test": "^0.5.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.1"
+  },
+  "resolutions": {
+    "ganache-core": "^2.13.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
