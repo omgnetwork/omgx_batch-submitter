@@ -180,8 +180,12 @@ export class StateBatchSubmitter extends BatchSubmitter {
         const block = (await this.l2Provider.getBlockWithTransactions(
           startBlock + i
         )) as L2Block
-        if (block.transactions[0].from === this.fraudSubmissionAddress) {
-          this.fraudSubmissionAddress = 'no fraud'
+        //if (block.transactions[0].from === this.fraudSubmissionAddress) {
+        if ( block.transactions[0].from.toLowerCase() === this.fraudSubmissionAddress.toLowerCase() ) {
+          //the string match here used to be case sensitive... not ideal 
+          //this.fraudSubmissionAddress = 'no fraud'
+          //we want to keep triggering the fraud detection/proving system if needed
+          this.log.info("Transaction from fraud address - returning bad state root")
           return '0xbad1bad1bad1bad1bad1bad1bad1bad1bad1bad1bad1bad1bad1bad1bad1bad1'
         }
         return block.stateRoot
@@ -200,6 +204,8 @@ export class StateBatchSubmitter extends BatchSubmitter {
         startBlock,
       ])
     }
+
+    this.log.info("The final batch:", {batch: batch})
 
     return batch
   }
